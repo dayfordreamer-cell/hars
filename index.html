@@ -1,92 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>D’vine Parlour</title>
   <style>
-    body { font-family: 'Georgia', serif; margin: 0; padding: 0; background: #fff8f6; color: #333; }
-    header { background: #b56576; color: white; padding: 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 2.5rem; }
-    nav { margin-top: 10px; }
-    nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
-    section { padding: 40px 20px; text-align: center; }
-    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-    .card { background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    form { max-width: 400px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    form input, form button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
-    form button { background: #b56576; color: white; border: none; cursor: pointer; font-size: 1rem; }
-    form button:hover { background: #8c3b4a; }
-    footer { background: #333; color: white; text-align: center; padding: 20px; }
-    footer a { color: #ffb4a2; text-decoration: none; }
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: #fdfdfd;
+      color: #333;
+    }
+    header {
+      background: #b56576;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    nav {
+      background: #6d597a;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .services ul {
+      list-style: none;
+      padding: 0;
+    }
+    .services li {
+      background: #f3d1dc;
+      margin: 0.5rem 0;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    form button {
+      background: #b56576;
+      color: #fff;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+    }
+    form button:hover {
+      background: #6d597a;
+    }
+    footer {
+      background: #b56576;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+    #msg {
+      margin-top: 1rem;
+      font-weight: bold;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>D’vine Parlour</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#booking">Book Now</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <p>Singhrawan More, Chouparan, Hazaribagh, Jh 825406</p>
   </header>
 
-  <section id="services">
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#booking">Book Now</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="services" class="services">
     <h2>Our Services</h2>
-    <div class="services">
-      <div class="card">Haircuts & Styling</div>
-      <div class="card">Hair Coloring & Highlights</div>
-      <div class="card">Manicure & Pedicure</div>
-      <div class="card">Facials & Skincare</div>
-      <div class="card">Makeup & Bridal Packages</div>
-    </div>
+    <ul>
+      <li>Haircuts & Styling</li>
+      <li>Hair Coloring & Highlights</li>
+      <li>Manicure & Pedicure</li>
+      <li>Facials & Skincare</li>
+      <li>Makeup & Bridal Packages</li>
+    </ul>
   </section>
 
   <section id="booking">
-    <h2>Book an Appointment</h2>
+    <h2>Book Your Appointment</h2>
     <form id="bookingForm">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="text" name="phone" placeholder="Phone Number" required>
-      <input type="datetime-local" name="date" required>
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <select name="service" required>
+        <option value="">Select a Service</option>
+        <option>Haircuts & Styling</option>
+        <option>Hair Coloring & Highlights</option>
+        <option>Manicure & Pedicure</option>
+        <option>Facials & Skincare</option>
+        <option>Makeup & Bridal Packages</option>
+      </select>
+      <input type="date" name="date" required />
+      <input type="time" name="time" required />
+      <textarea name="notes" placeholder="Additional Notes (optional)"></textarea>
       <button type="submit">Book Now</button>
     </form>
-    <p id="responseMsg"></p>
+    <div id="msg"></div>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <p><strong>WhatsApp:</strong> <a href="https://wa.me/917061543143" target="_blank">7061543143</a></p>
-    <p><strong>Address:</strong> Singhrawan More, Chouparan, Hazaribagh, Jh 825406</p>
+    <p>WhatsApp: <a href="https://wa.me/917061543143" target="_blank">7061543143</a></p>
+    <p>Address: Singhrawan More, Chouparan, Hazaribagh, Jh 825406</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 D’vine Parlour | Designed with ❤️</p>
+    <p>&copy; 2025 D’vine Parlour | All Rights Reserved</p>
   </footer>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyw8JQgdtANFmHQlQWpKNhsruCc86l5xl51siaV-CjyZpoLm33G7J1PjbJoBi7bXfAG/exec";
     const form = document.getElementById("bookingForm");
-    const responseMsg = document.getElementById("responseMsg");
+    const msg = document.getElementById("msg");
 
-    form.addEventListener("submit", e => {
+    // Replace with your deployed Google Apps Script Web App URL:
+    const scriptUrl = "YOUR_WEB_APP_URL_HERE";
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
+      msg.textContent = "Submitting...";
 
-      fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
-      })
-      .then(res => res.json())
-      .then(response => {
-        responseMsg.textContent = "✅ Booking successful!";
-        form.reset();
-      })
-      .catch(error => {
-        responseMsg.textContent = "❌ Error! Please try again.";
-        console.error(error);
-      });
+      const data = {
+        name: form.name.value,
+        phone: form.phone.value,
+        service: form.service.value,
+        date: form.date.value,
+        time: form.time.value,
+        notes: form.notes.value
+      };
+
+      try {
+        const res = await fetch(scriptUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        const json = await res.json();
+        if (json.status === "success") {
+          msg.textContent = "✅ Booking saved successfully!";
+          form.reset();
+        } else {
+          msg.textContent = "⚠️ Error: " + (json.message || "Unknown error");
+        }
+      } catch (err) {
+        msg.textContent = "❌ Failed: " + err.message;
+      }
     });
   </script>
 </body>
