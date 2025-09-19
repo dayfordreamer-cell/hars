@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D’vine Parlour</title>
+  <style>
+    body { font-family: 'Georgia', serif; margin: 0; padding: 0; background: #fff8f6; color: #333; }
+    header { background: #b56576; color: white; padding: 20px; text-align: center; }
+    header h1 { margin: 0; font-size: 2.5rem; }
+    nav { margin-top: 10px; }
+    nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
+    section { padding: 40px 20px; text-align: center; }
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .card { background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    form { max-width: 400px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    form input, form button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+    form button { background: #b56576; color: white; border: none; cursor: pointer; font-size: 1rem; }
+    form button:hover { background: #8c3b4a; }
+    footer { background: #333; color: white; text-align: center; padding: 20px; }
+    footer a { color: #ffb4a2; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>D’vine Parlour</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#booking">Book Now</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">Haircuts & Styling</div>
+      <div class="card">Hair Coloring & Highlights</div>
+      <div class="card">Manicure & Pedicure</div>
+      <div class="card">Facials & Skincare</div>
+      <div class="card">Makeup & Bridal Packages</div>
+    </div>
+  </section>
+
+  <section id="booking">
+    <h2>Book an Appointment</h2>
+    <form id="bookingForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="text" name="phone" placeholder="Phone Number" required>
+      <input type="datetime-local" name="date" required>
+      <button type="submit">Book Now</button>
+    </form>
+    <p id="responseMsg"></p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>WhatsApp:</strong> <a href="https://wa.me/917061543143" target="_blank">7061543143</a></p>
+    <p><strong>Address:</strong> Singhrawan More, Chouparan, Hazaribagh, Jh 825406</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 D’vine Parlour | Designed with ❤️</p>
+  </footer>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzpcNCvhCgJkAq7rcY7LyPDCnQ-iGwHBRGpsDJiUBy0CZrt2Ut6x6sEalDu552PQJla/exec";
+    const form = document.getElementById("bookingForm");
+    const responseMsg = document.getElementById("responseMsg");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(res => res.json())
+      .then(response => {
+        responseMsg.textContent = "✅ Booking successful!";
+        form.reset();
+      })
+      .catch(error => {
+        responseMsg.textContent = "❌ Error! Please try again.";
+        console.error(error);
+      });
+    });
+  </script>
+</body>
+</html>
