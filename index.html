@@ -1,164 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>D’vine Parlour</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D'vine Parlour — Beauty & Salon</title>
+  <meta name="description" content="D'vine Parlour - Haircuts, Coloring, Manicure, Facials, Bridal Makeup. Book your slot now.">
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   <style>
+    :root {
+      --accent:#8b5e3c;
+      --muted:#f6f4f2;
+      --text:#222;
+      --card:#ffffff;
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
     body {
-      margin: 0;
-      font-family: "Georgia", serif;
-      background: #fdfdfd;
-      color: #333;
+      margin:0;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color:var(--text);
+      background: linear-gradient(180deg, var(--muted), #fff);
+      line-height:1.45;
     }
-    header {
-      background: #b56576;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:68px;height:68px;border-radius:50%;background-image:url('https://source.unsplash.com/400x400/?salon,spa');background-size:cover;border:3px solid rgba(0,0,0,0.06)}
+    h1{font-size:1.6rem;margin:0}
+    .tag{font-size:0.95rem;color:rgba(0,0,0,0.6)}
+    nav a{margin-left:12px;text-decoration:none;color:var(--accent);font-weight:700}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin:28px 0}
+    .hero-card{background:var(--card);padding:28px;border-radius:var(--radius);box-shadow:0 6px 26px rgba(0,0,0,0.06)}
+    .hero h2{font-size:2.1rem;margin:0 0 8px}
+    .hero p{margin:0 0 16px;color:rgba(0,0,0,0.65)}
+    .services{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .service-pill{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,#fff,#fbf7f5);border:1px solid rgba(0,0,0,0.04);font-weight:600}
+    form{display:flex;flex-direction:column;gap:10px}
+    label{font-size:0.9rem}
+    input,select,textarea {
+      width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;font-family:inherit
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    nav {
-      background: #6d597a;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    .services ul {
-      list-style: none;
-      padding: 0;
-    }
-    .services li {
-      background: #f3d1dc;
-      margin: 0.5rem 0;
-      padding: 1rem;
-      border-radius: 8px;
-    }
-    form {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    form input, form select, form textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    form button {
-      background: #b56576;
-      color: #fff;
-      padding: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-      font-size: 1rem;
-    }
-    form button:hover {
-      background: #6d597a;
-    }
-    footer {
-      background: #b56576;
-      color: #fff;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 2rem;
-    }
-    #msg {
-      margin-top: 1rem;
-      font-weight: bold;
-      text-align: center;
-    }
+    button.primary{background:var(--accent);color:#fff;border:none;padding:12px;border-radius:10px;font-weight:700;cursor:pointer}
+    .muted{color:rgba(0,0,0,0.6);font-size:0.9rem}
+    .info{display:flex;flex-direction:column;gap:10px}
+    .contact-card{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:#fff}
+    footer{margin-top:36px;padding:18px 0;text-align:center;color:rgba(0,0,0,0.6)}
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}.hero-card{order:2}}
+    @media (max-width:520px){header{flex-direction:column;align-items:flex-start}.logo{width:56px;height:56px}}
+    .bookings{margin-top:14px;border-radius:10px;padding:12px;background:linear-gradient(180deg,#fff,#fcfbfa);border:1px solid #eee}
+    .booking-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #f0ece9}
+    .booking-row:last-child{border-bottom:none}
   </style>
 </head>
 <body>
-  <header>
-    <h1>D’vine Parlour</h1>
-    <p>Singhrawan More, Chouparan, Hazaribagh, Jh 825406</p>
-  </header>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>D'vine Parlour</h1>
+          <div class="tag">Elegance • Care • You</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#booking">Book</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#booking">Book Now</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <section class="hero">
+      <div class="hero-card">
+        <h2>Welcome to D'vine Parlour</h2>
+        <p>Signature haircuts, colour, rejuvenating facials and bridal makeup — delivered by experienced stylists and beauticians.</p>
+        <div id="services" class="services">
+          <div class="service-pill">Haircuts & Styling</div>
+          <div class="service-pill">Hair Coloring & Highlights</div>
+          <div class="service-pill">Manicure & Pedicure</div>
+          <div class="service-pill">Facials & Skincare</div>
+          <div class="service-pill">Makeup & Bridal Packages</div>
+        </div>
+        <p class="muted">Call / WhatsApp: <strong>7061543143</strong></p>
+      </div>
 
-  <section id="services" class="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li>Haircuts & Styling</li>
-      <li>Hair Coloring & Highlights</li>
-      <li>Manicure & Pedicure</li>
-      <li>Facials & Skincare</li>
-      <li>Makeup & Bridal Packages</li>
-    </ul>
-  </section>
+      <aside class="hero-card">
+        <h3 id="booking">Book a Slot</h3>
+        <form id="bookingForm">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" required>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" required>
+          <label for="service">Service</label>
+          <select id="service" name="service" required>
+            <option value="Haircuts & Styling">Haircuts & Styling</option>
+            <option value="Hair Coloring & Highlights">Hair Coloring & Highlights</option>
+            <option value="Manicure & Pedicure">Manicure & Pedicure</option>
+            <option value="Facials & Skincare">Facials & Skincare</option>
+            <option value="Makeup & Bridal Packages">Makeup & Bridal Packages</option>
+          </select>
+          <div style="display:flex;gap:8px">
+            <div style="flex:1">
+              <label for="date">Date</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+            <div style="flex:1">
+              <label for="time">Time</label>
+              <input id="time" name="time" type="time" required>
+            </div>
+          </div>
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" rows="3"></textarea>
+          <button type="submit" class="primary">Request Booking</button>
+          <div id="formMsg" class="muted"></div>
+        </form>
+      </aside>
+    </section>
 
-  <section id="booking">
-    <h2>Book Your Appointment</h2>
-    <form id="bookingForm">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="tel" name="phone" placeholder="Phone Number" required />
-      <select name="service" required>
-        <option value="">Select a Service</option>
-        <option>Haircuts & Styling</option>
-        <option>Hair Coloring & Highlights</option>
-        <option>Manicure & Pedicure</option>
-        <option>Facials & Skincare</option>
-        <option>Makeup & Bridal Packages</option>
-      </select>
-      <input type="date" name="date" required />
-      <input type="time" name="time" required />
-      <textarea name="notes" placeholder="Additional Notes (optional)"></textarea>
-      <button type="submit">Book Now</button>
-    </form>
-    <div id="msg"></div>
-  </section>
+    <section class="hero-card" id="contact">
+      <h3>Contact & Location</h3>
+      <div class="info">
+        <div class="contact-card">
+          <div style="flex:1">
+            <div style="font-weight:700">D'vine Parlour</div>
+            <div class="muted">Singhrawan More, Chouparan, Hazaribagh, Jh 825406</div>
+            <div class="muted">WhatsApp: <strong>7061543143</strong></div>
+          </div>
+        </div>
+        <div style="margin-top:8px">
+          <img alt="map" style="width:100%;border-radius:10px"
+            src="https://maps.googleapis.com/maps/api/staticmap?center=Singhrawan+More,Chouparan,Hazaribagh&zoom=14&size=1200x400&markers=color:0x8b5e3c%7Clabel:D%7CSinghrawan+More">
+        </div>
+      </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>WhatsApp: <a href="https://wa.me/917061543143" target="_blank">7061543143</a></p>
-    <p>Address: Singhrawan More, Chouparan, Hazaribagh, Jh 825406</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 D’vine Parlour | All Rights Reserved</p>
-  </footer>
+    <footer>
+      © <span id="year"></span> D'vine Parlour • <a href="https://docs.google.com/spreadsheets/d/1QOoHhinsshGL9hFeWwTwhfpGrYDDjsutP95n5yoDvKw/edit?gid=0#gid=0" target="_blank">Bookings Sheet</a>
+    </footer>
+  </div>
 
   <script>
-    const form = document.getElementById("bookingForm");
-    const msg = document.getElementById("msg");
-
-    // Replace with your deployed Google Apps Script Web App URL:
+    document.getElementById('year').textContent = new Date().getFullYear();
     const scriptUrl = "https://script.google.com/macros/s/AKfycbx-PvxEzJ1YiWhM_lnHS9N8zKRhRfvcBFeariQzDbPSNWkqvgoAqK-Cb80RrOLLGK95/exec";
+    const form = document.getElementById('bookingForm');
+    const msg = document.getElementById('formMsg');
 
-    form.addEventListener("submit", async (e) => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       msg.textContent = "Submitting...";
 
       const data = {
-        name: form.name.value,
-        phone: form.phone.value,
-        service: form.service.value,
-        date: form.date.value,
-        time: form.time.value,
-        notes: form.notes.value
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        service: document.getElementById('service').value,
+        date: document.getElementById('date').value,
+        time: document.getElementById('time').value,
+        notes: document.getElementById('notes').value
       };
 
       try {
@@ -167,15 +163,15 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)
         });
-        const json = await res.json();
-        if (json.status === "success") {
-          msg.textContent = "✅ Booking saved successfully!";
+        const out = await res.json();
+        if(out.status === "success") {
+          msg.textContent = "✅ Booking request sent! We'll confirm via WhatsApp.";
           form.reset();
         } else {
-          msg.textContent = "⚠️ Error: " + (json.message || "Unknown error");
+          msg.textContent = "❌ Error: " + out.message;
         }
-      } catch (err) {
-        msg.textContent = "❌ Failed: " + err.message;
+      } catch(err) {
+        msg.textContent = "❌ Failed: " + err;
       }
     });
   </script>
